@@ -5,6 +5,7 @@ Basemodel class modules.
 
 import uuid
 from datetime import datetime
+import models
 
 class BaseModel:
     def __init__(self, *args, **kwargs):
@@ -23,11 +24,14 @@ class BaseModel:
                     self.created_at = datetime.utcnow()
                     self.updated_at = datetime.utcnow()
 
+                models.storage.new(self)
+
     def save(self):
         """
         Save method to update the updated_at attribute
         """
         self.updated_at = datetime.utcnow()
+        models.storage.save()
 
     def to_dict(self):
         """
