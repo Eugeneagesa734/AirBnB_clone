@@ -8,5 +8,5 @@ footer {
     text-align: center;
     justify-content: center;
     line-height: 60px;
-    
+    position: fixed;
 }
